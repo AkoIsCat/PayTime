@@ -1,6 +1,14 @@
 {
-  "role": {
-    "@typescript-eslint/no-var-requires": 0
+  "roles": {
+    "@typescript-eslint/no-var-requires": 0, // require 에러 무시
+    "prettier/prettier": ["error", { "endOfLine": "auto" }], // Prettier 규칙 위반 시 ESLint 오류 처리
+    "no-unused-vars": "warn", // 사용되지 않는 변수 경고
+    "react-hooks/rules-of-hooks": "error", // React Hooks 규칙 검사
+    "react-hooks/exhaustive-deps": "warn" // 의존성 배열 검사
   },
-  "extends": ["next/core-web-vitals", "next/typescript"]
+  "extends": [
+    "next/core-web-vitals", // Next.js 기본 설정
+    "next/typescript",
+    "plugin:prettier/recommended" // Prettier 규칙 적용
+  ]
 }
