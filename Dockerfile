@@ -47,8 +47,5 @@ RUN npm install
 # 소스 코드 복사
 COPY . .
 
-# 포트 오픈 (예: 3000)
-EXPOSE 3000
-
 # 앱 실행
 CMD ["npm", "run", "start"]
