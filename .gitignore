@@ -34,3 +34,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Next.js 빌드 파일들
+.next/
+public/sw.js
+public/workbox-*.js
