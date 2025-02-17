@@ -16,6 +16,7 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: 'PayTime',
   description: 'PayyyyyyyyyyTime',
+  manifest: '/manifest.json',
 };
 
 export const viewport: Viewport = {
@@ -29,13 +30,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <link
-          rel="manifest"
-          href="/manifest.json"
-          crossOrigin="use-credentials"
-        />
-      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
