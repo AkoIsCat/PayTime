@@ -41,4 +41,4 @@ jobs:
             docker pull ${{ secrets.DOCKER_USERNAME }}/paytime:latest
             docker stop paytime || true
             docker rm paytime || true
-            docker run -d -p 3000:3000 --name my-app ${{ secrets.DOCKER_USERNAME }}/paytime:latest
+            docker run -d -p 3000:3000 --name paytime_container ${{ secrets.DOCKER_USERNAME }}/paytime:latest
