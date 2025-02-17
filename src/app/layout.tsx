@@ -13,16 +13,6 @@ const geistMono = localFont({
   weight: '100 900',
 });
 
-export const metadata: Metadata = {
-  title: 'PayTime',
-  description: '알바 급여 계산기',
-  manifest: '/manifest.json',
-};
-
-export const viewport: Viewport = {
-  themeColor: '#f391bb',
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
