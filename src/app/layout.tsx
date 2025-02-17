@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
-import Head from 'next/head';
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -16,7 +15,8 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: 'PayTime',
-  description: 'PayTime',
+  description: '알바 급여 계산기',
+  manifest: '/manifest.json',
 };
 
 export const viewport: Viewport = {
@@ -30,9 +30,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Head>
-        <link rel="manifest" href="/manifest.json" />
-      </Head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
