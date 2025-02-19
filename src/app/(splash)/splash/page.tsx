@@ -1,5 +1,5 @@
-import Background from '@/components/Background';
-import Contents from '@/components/Contents';
+import Background from '@/app/components/Background';
+import Contents from '@/app/components/Contents';
 
 export default function Splash() {
   return (
