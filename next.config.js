@@ -7,6 +7,16 @@ const withPWA = require('next-pwa')({
   skipWaiting: true,
 });
 
-const nextConfig = {};
+const nextConfig = {
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/splash',
+        permanent: false,
+      },
+    ];
+  },
+};
 
 module.exports = withPWA(nextConfig);
