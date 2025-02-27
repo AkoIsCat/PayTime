@@ -7,6 +7,7 @@ import Logo from '@/asset/PayTimeLogo.png';
 
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { motion } from 'motion/react';
 
 export default function Splash() {
   const router = useRouter();
@@ -19,12 +20,23 @@ export default function Splash() {
     return () => clearTimeout(timer);
   }, [router]);
 
+  const transitionEffect = {
+    duration: 0.2,
+    delay: 0.9,
+  };
+
   return (
     <Background>
-      <Contents splash={1}>
-        <Image src={Logo} width={316} height={316} alt="페이타임 로고" />
-        <div className="text-5xl mt-2">PayTime</div>
-      </Contents>
+      <motion.div
+        initial={{ opacity: 1 }}
+        animate={{ opacity: 0 }}
+        transition={transitionEffect}
+      >
+        <Contents splash={1}>
+          <Image src={Logo} width={316} height={316} alt="페이타임 로고" />
+          <div className="text-5xl mt-2">PayTime</div>
+        </Contents>
+      </motion.div>
     </Background>
   );
 }
