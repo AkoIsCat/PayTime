@@ -15,14 +15,14 @@ export default function Splash() {
   useEffect(() => {
     const timer = setTimeout(() => {
       router.push('/main');
-    }, 1200);
+    }, 1500);
 
     return () => clearTimeout(timer);
   }, [router]);
 
   const transitionEffect = {
-    duration: 0.2,
-    delay: 0.9,
+    duration: 0.5,
+    delay: 1,
   };
 
   return (
