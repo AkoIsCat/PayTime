@@ -11,9 +11,15 @@ const config: Config = {
       colors: {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
+        splashStart: '#fdd6f1',
+        splashEnd: '#feebf9',
       },
       width: {
         contentsWidth: '595px',
+      },
+      backgroundColor: {
+        background: '#F5F5F5',
+        mainBgColor: '#F6F6F6',
       },
     },
   },

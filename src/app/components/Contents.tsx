@@ -1,8 +1,16 @@
-import { Children } from '@/types';
+import { MergeChildrenSplash } from '@/types';
 
-export default function Contents({ children }: Children) {
+export default function Contents({ children, splash }: MergeChildrenSplash) {
+  // 동적 클래스를 할당하기 위한 객체
+  const backgroundGradient = {
+    1: 'bg-gradient-to-t from-splashStart to-splashEnd',
+    0: 'bg-mainBgColor',
+  };
+
   return (
-    <div className="bg-blue-500 w-contentsWidth min-h-screen flex items-center justify-center">
+    <div
+      className={`${backgroundGradient[splash]} w-contentsWidth min-h-screen flex items-center justify-center flex-col`}
+    >
       {children}
     </div>
   );
