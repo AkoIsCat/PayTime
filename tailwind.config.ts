@@ -13,6 +13,7 @@ const config: Config = {
         foreground: 'var(--foreground)',
         splashStart: '#fdd6f1',
         splashEnd: '#feebf9',
+        logoText: '#2e2e2e',
       },
       width: {
         contentsWidth: '595px',
@@ -20,6 +21,9 @@ const config: Config = {
       backgroundColor: {
         background: '#F5F5F5',
         mainBgColor: '#F6F6F6',
+      },
+      fontSize: {
+        ['3.5rem']: '3.5rem',
       },
     },
   },
