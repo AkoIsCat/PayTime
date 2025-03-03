@@ -1,3 +1,3 @@
 export default function WorkHoursForm() {
-  return;
+  return <div>근무 시간</div>;
 }

@@ -1,3 +1,3 @@
 export default function WeeklyAllowanceToggle() {
-  return;
+  return <div>주휴수당 여부</div>;
 }
