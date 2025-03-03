@@ -3,7 +3,7 @@ import Background from '@/app/components/Background';
 import Contents from '@/app/components/Contents';
 import Image from 'next/image';
 
-import Logo from '@/asset/PayTimeLogo.png';
+import Logo from '@/asset/PayTimeLogo_RemoveBg.png';
 
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
