@@ -21,6 +21,9 @@ const config: Config = {
         background: '#F5F5F5',
         mainBgColor: '#F6F6F6',
       },
+      height: {
+        header: '100px',
+      },
     },
   },
   plugins: [],
