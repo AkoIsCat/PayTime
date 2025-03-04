@@ -13,13 +13,24 @@ const config: Config = {
         foreground: 'var(--foreground)',
         splashStart: '#fdd6f1',
         splashEnd: '#feebf9',
+        detailToggle: '#164686',
       },
       width: {
         contentsWidth: '595px',
+        input: '525px',
       },
       backgroundColor: {
         background: '#F5F5F5',
         mainBgColor: '#F6F6F6',
+      },
+      height: {
+        input: '35px',
+      },
+      translate: {
+        ['50%']: '50%',
+      },
+      inset: {
+        ['50%']: '50%',
       },
     },
   },
