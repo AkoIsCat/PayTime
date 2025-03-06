@@ -6,8 +6,8 @@ export interface Children {
 
 // 버튼의 필요 type
 export interface ButtonType {
-  btnType: 'submit' | 'clear'; // 전송 | 초기화
-  onClick: () => {};
+  btnType: 'submit' | 'reset'; // 전송 | 초기화
+  onClick: () => void;
 }
 
 // 콘텐츠 영역 필요 type

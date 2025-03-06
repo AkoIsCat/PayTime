@@ -14,10 +14,14 @@ const config: Config = {
         splashStart: '#fdd6f1',
         splashEnd: '#feebf9',
         detailToggle: '#164686',
+        submitBtn: '#6490D1',
+        resetBtn: '#ffffff',
       },
       width: {
         contentsWidth: '595px',
         input: '525px',
+        submitBtn: '465px',
+        resetBtn: '55px',
       },
       backgroundColor: {
         background: '#F5F5F5',
