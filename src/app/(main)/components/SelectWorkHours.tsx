@@ -1,4 +1,4 @@
-import { SelectType } from '@/types';
+import { SelectType, TaxType } from '@/types';
 import {
   Select,
   SelectTrigger,
@@ -18,17 +18,38 @@ for (let i = 1; i <= 7; i++) {
   workDays.push(i);
 }
 
-// 세금도 추가하기
+const workTax: { tax: number; type: TaxType }[] = [
+  {
+    tax: 9.4,
+    type: 'FourSocialInsurances',
+  },
+  {
+    tax: 3.3,
+    type: 'incomeTax',
+  },
+];
 
 export default function SelectWorkHours({ itemType }: SelectType) {
   return (
     <Select>
       <SelectTrigger className="bg-white">
-        <SelectValue placeholder="근무 시간을 선택해주세요." />
+        <SelectValue
+          placeholder={
+            itemType === 'time'
+              ? '근무 시간을 선택해주세요'
+              : itemType === 'day'
+                ? '근무 일수를 선택해주세요'
+                : '선택안함'
+          }
+        />
       </SelectTrigger>
       <SelectContent className="bg-white">
         <SelectItem value="0" className={cn('cursor-pointer')}>
-          {itemType === 'time' ? '시간선택' : '일수선택'}
+          {itemType === 'time'
+            ? '시간선택'
+            : itemType === 'day'
+              ? '일수선택'
+              : '미적용'}
         </SelectItem>
         {itemType === 'time' && // 시간 항목
           workHours.map((item) => (
@@ -48,6 +69,16 @@ export default function SelectWorkHours({ itemType }: SelectType) {
               className={cn('cursor-pointer')}
             >
               {item}일
+            </SelectItem>
+          ))}
+        {itemType === 'tax' &&
+          workTax.map((item) => (
+            <SelectItem
+              key={item.type}
+              value={item.tax.toString()}
+              className={cn('cursor-pointer')}
+            >
+              {item.tax}%
             </SelectItem>
           ))}
       </SelectContent>

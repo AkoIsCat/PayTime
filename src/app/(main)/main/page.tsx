@@ -14,6 +14,8 @@ export default function Main() {
           <SelectWorkHours itemType="time" />
           <DetailHoursToggle>상세하게 입력</DetailHoursToggle>
           <SelectWorkHours itemType="day" />
+          <DetailHoursToggle>상세하게 입력</DetailHoursToggle>
+          <SelectWorkHours itemType="tax" />
         </div>
       </Contents>
     </Background>

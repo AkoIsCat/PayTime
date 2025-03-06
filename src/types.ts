@@ -22,8 +22,11 @@ export interface LabelForType {
 
 // select 아이템의 type
 export interface SelectType {
-  itemType: 'time' | 'day';
+  itemType: 'time' | 'day' | 'tax';
 }
+
+// 세금 타입 종류
+export type TaxType = 'FourSocialInsurances' | 'incomeTax'; // 4대보험, 소득세
 
 // Children과 ContentsType을 병합
 export type MergeChildrenSplash = Children & ContentsType;
