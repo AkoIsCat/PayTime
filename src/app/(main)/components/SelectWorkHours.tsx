@@ -8,31 +8,31 @@ import {
 } from '@/components/ui/select';
 import { cn } from '@/lib/utils';
 
-const workHours: number[] = [];
-for (let i = 30; i <= 1440; i += 30) {
-  workHours.push(i);
-}
-
-const workDays: number[] = [];
-for (let i = 1; i <= 7; i++) {
-  workDays.push(i);
-}
-
-const workTax: { tax: number; type: TaxType }[] = [
-  {
-    tax: 9.4,
-    type: 'FourSocialInsurances',
-  },
-  {
-    tax: 3.3,
-    type: 'incomeTax',
-  },
-];
-
 export default function SelectWorkHours({ itemType }: SelectType) {
+  const workHours: number[] = [];
+  for (let i = 30; i <= 1440; i += 30) {
+    workHours.push(i);
+  }
+
+  const workDays: number[] = [];
+  for (let i = 1; i <= 7; i++) {
+    workDays.push(i);
+  }
+
+  const workTax: { tax: number; type: TaxType }[] = [
+    {
+      tax: 9.4,
+      type: 'FourSocialInsurances',
+    },
+    {
+      tax: 3.3,
+      type: 'incomeTax',
+    },
+  ];
+
   return (
     <Select>
-      <SelectTrigger className="bg-white">
+      <SelectTrigger className={cn('bg-white')}>
         <SelectValue
           placeholder={
             itemType === 'time'
@@ -71,7 +71,7 @@ export default function SelectWorkHours({ itemType }: SelectType) {
               {item}일
             </SelectItem>
           ))}
-        {itemType === 'tax' &&
+        {itemType === 'tax' && // 세금 항목
           workTax.map((item) => (
             <SelectItem
               key={item.type}
