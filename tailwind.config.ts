@@ -22,6 +22,10 @@ const config: Config = {
         input: '525px',
         submitBtn: '465px',
         resetBtn: '55px',
+        select: '200px',
+        detailForm: '420px',
+        days: '55px',
+        dayInput: '15px',
       },
       backgroundColor: {
         background: '#F5F5F5',
@@ -29,12 +33,19 @@ const config: Config = {
       },
       height: {
         input: '35px',
+        select: '25px',
       },
       translate: {
         ['50%']: '50%',
       },
       inset: {
         ['50%']: '50%',
+      },
+      outlineWidth: {
+        ['10px']: '10px',
+      },
+      fontSize: {
+        ['10px']: '10px',
       },
     },
   },
