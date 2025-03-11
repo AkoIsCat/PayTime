@@ -26,13 +26,7 @@ export default function SalarySelectForm({ type }: SalarySelectType) {
           '[&>svg]:hidden'
         )}
       >
-        <SelectValue>
-          {selectedOption === 'hour'
-            ? '시급'
-            : selectedOption === 'month'
-              ? '월급'
-              : '주급'}
-        </SelectValue>
+        <SelectValue />
       </SelectTrigger>
       <SelectContent className={cn('bg-white')}>
         {type === 'start' && (
@@ -45,7 +39,7 @@ export default function SalarySelectForm({ type }: SalarySelectType) {
             <SelectItem value="hour" className={cn('cursor-pointer')}>
               시급
             </SelectItem>
-            <SelectItem value="week " className={cn('cursor-pointer')}>
+            <SelectItem value="week" className={cn('cursor-pointer')}>
               주급
             </SelectItem>
             <SelectItem value="month" className={cn('cursor-pointer')}>
