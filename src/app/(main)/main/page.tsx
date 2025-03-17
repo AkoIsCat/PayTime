@@ -9,6 +9,7 @@ import SalaryResultsBox from '../components/SalaryResultsBox';
 import SalarySelectForm from '../components/SalarySelectForm';
 import AddDetailIButton from '../components/AddDetailIButton';
 import DetailInputForm from '../components/DetailInputForm';
+import WeeklyAllowanceToggle from '../components/WeeklyAllowanceToggle';
 
 export default function Main() {
   return (
@@ -25,6 +26,7 @@ export default function Main() {
           <SelectWorkHours itemType="day" />
           <DetailHoursToggle>상세하게 입력</DetailHoursToggle>
           <SelectWorkHours itemType="tax" />
+          <WeeklyAllowanceToggle />
         </div>
         <AddDetailIButton onClick={() => console.log('+')} />
         <CustomButton
