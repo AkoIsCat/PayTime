@@ -21,3 +21,17 @@
     text-wrap: balance;
   }
 }
+
+@layer utilities {
+  input[type='number']::-webkit-outer-spin-button,
+  input[type='number']::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+select {
+  appearance: none; /* 브라우저 기본 스타일 제거 */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
