@@ -16,6 +16,7 @@ const config: Config = {
         detailToggle: '#164686',
         submitBtn: '#6490D1',
         resetBtn: '#ffffff',
+        selectBtn: '#d3d3d3',
       },
       width: {
         contentsWidth: '595px',
@@ -26,6 +27,7 @@ const config: Config = {
         detailForm: '420px',
         days: '55px',
         dayInput: '15px',
+        weekly: '260px',
       },
       backgroundColor: {
         background: '#F5F5F5',
@@ -34,6 +36,7 @@ const config: Config = {
       height: {
         input: '35px',
         select: '25px',
+        weekly: '20px',
       },
       translate: {
         ['50%']: '50%',
