@@ -17,6 +17,7 @@ const config: Config = {
         submitBtn: '#6490D1',
         resetBtn: '#ffffff',
         selectBtn: '#d3d3d3',
+        logoText: '#2e2e2e',
       },
       width: {
         contentsWidth: '595px',
@@ -49,7 +50,7 @@ const config: Config = {
       },
       fontSize: {
         ['10px']: '10px',
-      },
+        ['3.5rem']: '3.5rem',
     },
   },
   plugins: [],
