@@ -51,8 +51,9 @@ const config: Config = {
       fontSize: {
         ['10px']: '10px',
         ['3.5rem']: '3.5rem',
+      },
     },
+    plugins: [],
   },
-  plugins: [],
 };
 export default config;
