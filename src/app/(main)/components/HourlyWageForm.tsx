@@ -4,18 +4,19 @@ import { cn } from '@/lib/utils';
 
 export default function HourlyWageForm() {
   return (
-    <div>
+    <div className="my-4">
       <FormLabel htmlFor="work_hours">시급</FormLabel>
       <label className="flex relative flex-col">
         <Input
           type="number"
           id="work_hours"
           name="work_hours"
+          placeholder="10030"
           className={cn(
-            'w-input h-input outline-none pl-2 text-base border bg-white border-black text-right pr-7'
+            'w-wage h-input outline-none my-1 pl-2 text-base border rounded-lg bg-white border-black text-right pr-7'
           )}
         />
-        <span className="absolute right-0 top-50% -translate-y-50% pr-2">
+        <span className="absolute right-2 top-50% -translate-y-50% pr-2">
           원
         </span>
       </label>

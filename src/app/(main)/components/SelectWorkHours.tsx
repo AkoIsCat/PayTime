@@ -32,10 +32,15 @@ export default function SelectWorkHours({ itemType }: SelectType) {
 
   return (
     <Select>
-      <SelectTrigger className={cn('bg-white')}>
+      <SelectTrigger
+        className={cn('bg-white border-black mt-1 hover:bg-selectBtn')}
+      >
         <SelectValue
           placeholder={
-            itemType === 'time'
+            itemType === 'time' ||
+            itemType === 'overTime' ||
+            itemType === 'nightShift' ||
+            itemType === 'holiday'
               ? '근무 시간을 선택해주세요'
               : itemType === 'day'
                 ? '근무 일수를 선택해주세요'
@@ -45,13 +50,18 @@ export default function SelectWorkHours({ itemType }: SelectType) {
       </SelectTrigger>
       <SelectContent className="bg-white">
         <SelectItem value="0" className={cn('cursor-pointer')}>
-          {itemType === 'time'
+          {itemType === 'time' ||
+          itemType === 'overTime' ||
+          itemType === 'nightShift' ||
+          itemType === 'holiday'
             ? '시간선택'
             : itemType === 'day'
               ? '일수선택'
               : '미적용'}
         </SelectItem>
-        {itemType === 'time' && // 시간 항목
+        {(itemType === 'time' || itemType === 'overTime'||
+          itemType === 'nightShift' ||
+          itemType === 'holiday') && // 시간 항목
           workHours.map((item) => (
             <SelectItem
               key={item.toString()}
@@ -61,7 +71,7 @@ export default function SelectWorkHours({ itemType }: SelectType) {
               {`${Math.floor(item / 60)}시간 ${item % 60}분`}
             </SelectItem>
           ))}
-        {itemType === 'day' && // 일 수 항목
+        {itemType === 'day' &&
           workDays.map((item) => (
             <SelectItem
               key={item.toString()}

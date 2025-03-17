@@ -4,7 +4,7 @@ export default function Contents({ children, splash }: MergeChildrenSplash) {
   // 동적 클래스를 할당하기 위한 객체
   const backgroundGradient = {
     1: 'bg-gradient-to-t from-splashStart to-splashEnd',
-    0: 'bg-mainBgColor',
+    0: 'bg-white',
   };
 
   return (

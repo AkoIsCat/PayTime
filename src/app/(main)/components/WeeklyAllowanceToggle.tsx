@@ -4,7 +4,7 @@ export default function WeeklyAllowanceToggle() {
   const [selected, setSelected] = useState<'include' | 'exclude'>('include');
 
   return (
-    <div className="flex gap-4">
+    <div className="flex gap-4 my-2">
       <label
         className={`w-weekly border h-select border-black rounded-md text-sm text-center cursor-pointer ${
           selected === 'include' ? 'bg-selectBtn' : 'bg-white'

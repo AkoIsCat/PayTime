@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import Logo from '@/asset/PayTimeLogo.png';
+import Logo from '@/asset/PayTimeLogo_RemoveBg.png';
 
 export default function Header() {
   return (
@@ -9,8 +9,8 @@ export default function Header() {
         <Image
           src={Logo}
           alt="페이타임 헤더 로고"
-          width={60}
-          height={60}
+          width={100}
+          height={100}
           priority
         />
       </div>

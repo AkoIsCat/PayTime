@@ -25,7 +25,7 @@ export interface LabelForType {
 
 // select 아이템의 type
 export interface SelectType {
-  itemType: 'time' | 'day' | 'tax';
+  itemType: 'time' | 'day' | 'tax' | 'overTime' | 'nightShift' | 'holiday';
 }
 
 // 계산 결과 type

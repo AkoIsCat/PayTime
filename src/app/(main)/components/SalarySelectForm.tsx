@@ -22,7 +22,7 @@ export default function SalarySelectForm({ type }: SalarySelectType) {
     >
       <SelectTrigger
         className={cn(
-          'bg-white border-black border w-select h-input rounded-lg text-center justify-center pr-0 peer',
+          'bg-white border-black border w-select mt-2 h-select rounded-2xl text-center justify-center peer',
           '[&>svg]:hidden'
         )}
       >
@@ -36,8 +36,8 @@ export default function SalarySelectForm({ type }: SalarySelectType) {
         )}
         {type === 'end' && (
           <>
-            <SelectItem value="hour" className={cn('cursor-pointer')}>
-              시급
+            <SelectItem value="day" className={cn('cursor-pointer')}>
+              일급
             </SelectItem>
             <SelectItem value="week" className={cn('cursor-pointer')}>
               주급

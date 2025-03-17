@@ -16,12 +16,13 @@ const config: Config = {
         detailToggle: '#164686',
         submitBtn: '#6490D1',
         resetBtn: '#ffffff',
-        selectBtn: '#d3d3d3',
+        selectBtn: '#dedede',
         logoText: '#2e2e2e',
       },
       width: {
         contentsWidth: '595px',
         input: '525px',
+        wage: '550px',
         submitBtn: '465px',
         resetBtn: '55px',
         select: '200px',
@@ -35,7 +36,7 @@ const config: Config = {
         mainBgColor: '#F6F6F6',
       },
       height: {
-        header: '100px',
+        header: '90px',
         input: '35px',
         select: '25px',
         weekly: '20px',
@@ -52,6 +53,9 @@ const config: Config = {
       fontSize: {
         ['10px']: '10px',
         ['3.5rem']: '3.5rem',
+      },
+      margin: {
+        ['10px']: '10px',
       },
     },
     plugins: [],
