@@ -1,33 +1,43 @@
 'use client';
 import Background from '@/app/components/Background';
 import Contents from '@/app/components/Contents';
-import Header from '../components/Header';
-
-import SalaryResultBox from '../components/SalaryResultsBox';
-import { FormEvent } from 'react';
-import HourlyWageInfo from '../components/HourlyWageInfo';
-import WorkDetailsForm from '../components/WorkDetailsForm';
+import HourlyWageForm from '../components/HourlyWageForm';
+import SelectWorkHours from '../components/SelectWorkHours';
+import DetailHoursToggle from '../components/DetailHoursToggle';
+import CustomButton from '../components/Button';
+import SalaryResultsBox from '../components/SalaryResultsBox';
+import SalarySelectForm from '../components/SalarySelectForm';
+import AddDetailIButton from '../components/AddDetailIButton';
+import DetailInputForm from '../components/DetailInputForm';
+import WeeklyAllowanceToggle from '../components/WeeklyAllowanceToggle';
 
 export default function Main() {
-  const onSubmit = (
-    e: FormEvent<HTMLFormElement>,
-    formData: (number | boolean | string)[]
-  ) => {
-    e.preventDefault();
-    console.log('계산하기', formData);
-  };
-
   return (
     <Background>
       <Contents splash={0}>
         <div>
-          <Header />
-          <HourlyWageInfo year={2025} hourlyWage={10030} />
-          <WorkDetailsForm onSubmit={onSubmit} />
-          <SalaryResultBox />
-          <SalaryResultBox />
-          <SalaryResultBox />
+          <HourlyWageForm />
+          <SalarySelectForm type="start" />
+          <SalarySelectForm type="end" />
+          <DetailInputForm />
+          <DetailHoursToggle>상세하게 입력</DetailHoursToggle>
+          <SelectWorkHours itemType="time" />
+          <DetailHoursToggle>상세하게 입력</DetailHoursToggle>
+          <SelectWorkHours itemType="day" />
+          <DetailHoursToggle>상세하게 입력</DetailHoursToggle>
+          <SelectWorkHours itemType="tax" />
+          <WeeklyAllowanceToggle />
         </div>
+        <AddDetailIButton onClick={() => console.log('+')} />
+        <CustomButton
+          btnType="submit"
+          onClick={() => console.log('계산하기')}
+        />
+        <CustomButton btnType="reset" onClick={() => console.log('초기화')} />
+        <SalaryResultsBox resultsType="day" salary={100000} />
+        <SalaryResultsBox resultsType="WH" salary={100000} />
+        <SalaryResultsBox resultsType="week" salary={100000} />
+        <SalaryResultsBox resultsType="month" salary={100000} />
       </Contents>
     </Background>
   );
