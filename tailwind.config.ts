@@ -23,6 +23,7 @@ const config: Config = {
         contentsWidth: '595px',
         input: '525px',
         wage: '550px',
+        add: '555px',
         submitBtn: '465px',
         resetBtn: '55px',
         select: '200px',
