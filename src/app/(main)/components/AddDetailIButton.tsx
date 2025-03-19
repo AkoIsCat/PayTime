@@ -6,8 +6,9 @@ import { ClickType } from '@/types';
 export default function AddDetailIButton({ onClick }: ClickType) {
   return (
     <Button
+      type="button"
       variant="outline"
-      className={cn('w-input h-input bg-white')}
+      className={cn('w-add h-10 bg-white border-black mt-1')}
       onClick={onClick}
     >
       +
