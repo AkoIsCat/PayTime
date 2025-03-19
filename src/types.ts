@@ -23,10 +23,18 @@ export interface LabelForType {
   htmlFor: string;
 }
 
+type SelectItem =
+  | 'time'
+  | 'day'
+  | 'tax'
+  | 'overTime'
+  | 'nightShift'
+  | 'holiday';
+
 // select 아이템의 type
-export interface SelectType {
-  itemType: 'time' | 'day' | 'tax' | 'overTime' | 'nightShift' | 'holiday';
-}
+export type SelectType = {
+  itemType: SelectItem;
+};
 
 // 계산 결과 type
 export interface ResultsType {
@@ -57,6 +65,21 @@ export interface WorkFormType {
     formData: (number | boolean | string)[]
   ) => void;
 }
+
+export interface FormFieldType {
+  label: string;
+  hasToggle: boolean;
+  itemType: SelectItem;
+  onClick?: () => void;
+  detailToggle?: boolean;
+}
+
+export interface DetailToggleType {
+  onClick: () => void;
+}
+
 export type MergeChildrenFor = Children & LabelForType;
 
 export type MergeBtnClick = ButtonType & ClickType;
+
+export type MergeChildrenDetailBtn = Children & DetailToggleType
