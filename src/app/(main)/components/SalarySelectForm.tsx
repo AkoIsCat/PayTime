@@ -6,14 +6,20 @@ import {
   SelectContent,
 } from '@/components/ui/select';
 import { cn } from '@/lib/utils';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { SalarySelectType } from '@/types';
+import { useFormStore } from '@/store/form';
 
 export default function SalarySelectForm({ type }: SalarySelectType) {
   const defaultValue = type === 'start' ? 'hour' : 'month';
+  const { selectedSalaryOption } = useFormStore((state) => state);
 
   const [selectedOption, setSelectedOption] = useState(defaultValue);
+
+  useEffect(() => {
+    selectedSalaryOption(selectedOption);
+  }, [selectedOption]);
 
   return (
     <Select
