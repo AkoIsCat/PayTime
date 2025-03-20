@@ -8,6 +8,10 @@ export interface ClickType {
   onClick: () => void;
 }
 
+export interface Id {
+  id: string;
+}
+
 // 버튼의 필요 type
 export interface ButtonType {
   btnType: 'submit' | 'reset'; // 전송 | 초기화
@@ -34,6 +38,7 @@ type SelectItem =
 // select 아이템의 type
 export type SelectType = {
   itemType: SelectItem;
+  getTime?: (time: string) => void;
 };
 
 // 계산 결과 type
@@ -45,6 +50,7 @@ export interface ResultsType {
 // 급여 변환 type
 export interface SalarySelectType {
   type: 'start' | 'end';
+  resetToggle?: () => void;
 }
 
 // 세금 타입 종류
@@ -76,6 +82,10 @@ export interface FormFieldType {
 
 export interface DetailToggleType {
   onClick: () => void;
+}
+
+export interface DetailDayType {
+  getDay: (day: string) => void;
 }
 
 export type MergeChildrenFor = Children & LabelForType;
