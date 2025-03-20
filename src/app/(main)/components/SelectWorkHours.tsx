@@ -8,7 +8,7 @@ import {
 } from '@/components/ui/select';
 import { cn } from '@/lib/utils';
 
-export default function SelectWorkHours({ itemType }: SelectType) {
+export default function SelectWorkHours({ itemType, getTime }: SelectType) {
   const workHours: number[] = [];
   for (let i = 30; i <= 1440; i += 30) {
     workHours.push(i);
@@ -31,7 +31,11 @@ export default function SelectWorkHours({ itemType }: SelectType) {
   ];
 
   return (
-    <Select>
+    <Select
+      onValueChange={(value: string) =>
+        getTime ? getTime(value) : () => {}
+      }
+    >
       <SelectTrigger
         className={cn('bg-white border-black mt-1 hover:bg-selectBtn')}
       >
@@ -59,7 +63,8 @@ export default function SelectWorkHours({ itemType }: SelectType) {
               ? '일수선택'
               : '미적용'}
         </SelectItem>
-        {(itemType === 'time' || itemType === 'overTime'||
+        {(itemType === 'time' ||
+          itemType === 'overTime' ||
           itemType === 'nightShift' ||
           itemType === 'holiday') && // 시간 항목
           workHours.map((item) => (
