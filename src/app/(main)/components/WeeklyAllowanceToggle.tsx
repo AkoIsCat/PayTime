@@ -6,7 +6,7 @@ export default function WeeklyAllowanceToggle() {
   return (
     <div className="flex gap-4 my-2">
       <label
-        className={`w-weekly border h-select border-black rounded-md text-sm text-center cursor-pointer ${
+        className={`w-weekly border h-input border-black rounded-md text-sm flex items-center justify-center cursor-pointer ${
           selected === 'include' ? 'bg-selectBtn' : 'bg-white'
         }`}
       >
@@ -21,7 +21,7 @@ export default function WeeklyAllowanceToggle() {
         포함
       </label>
       <label
-        className={`w-weekly h-select border border-black rounded-md text-sm text-center cursor-pointer ${
+        className={`w-weekly h-input border border-black rounded-md text-sm flex items-center justify-center cursor-pointer ${
           selected === 'exclude' ? 'bg-selectBtn' : 'bg-white'
         }`}
       >

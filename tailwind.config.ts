@@ -30,7 +30,7 @@ const config: Config = {
         detailForm: '420px',
         days: '55px',
         dayInput: '15px',
-        weekly: '260px',
+        weekly: '270px',
       },
       backgroundColor: {
         background: '#F5F5F5',
