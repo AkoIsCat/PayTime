@@ -7,12 +7,17 @@ import CustomButton from './Button';
 import { BsArrowRight } from 'react-icons/bs';
 import { useFormStore } from '@/store/form';
 import { useState } from 'react';
+import DetailInputForm from './DetailInputForm';
 
 export default function WorkForm() {
   const [detailToggle, setDetailToggle] = useState<boolean>(false);
-  console.log(detailToggle);
 
   const salarySelected = useFormStore((state) => state.salarySelected);
+  const { detailForm, resetForm } = useFormStore();
+
+  const resetToggle = () => {
+    setDetailToggle(false);
+  };
 
   const dynamicLabelValue =
     salarySelected === 'day' ? '일' : salarySelected === 'week' ? '주' : '월';
@@ -22,7 +27,7 @@ export default function WorkForm() {
       <div className="flex justify-around">
         <SalarySelectForm type="start" />
         <BsArrowRight size={26} />
-        <SalarySelectForm type="end" />
+        <SalarySelectForm type="end" resetToggle={resetToggle} />
       </div>
       <HourlyWageForm />
       <FormField
@@ -30,11 +35,18 @@ export default function WorkForm() {
         hasToggle={true}
         itemType="time"
         detailToggle={detailToggle}
-        onClick={() => setDetailToggle(!detailToggle)}
+        onClick={() => {
+          setDetailToggle(!detailToggle);
+          resetForm();
+        }}
       />
       {salarySelected == 'day' ||
         (!detailToggle && (
           <FormField label="일주 근무일수" hasToggle={false} itemType="day" />
+        ))}
+      {detailToggle &&
+        detailForm.map((item) => (
+          <DetailInputForm key={item.id} id={item.id.toString()} />
         ))}
       {salarySelected !== 'day' && (
         <div className="my-4">
