@@ -1,9 +1,10 @@
 import FormLabel from './FormLabel';
 import DetailHoursToggle from './DetailHoursToggle';
 import SelectWorkHours from './SelectWorkHours';
+import AddDetailIButton from './AddDetailIButton';
 
 import { FormFieldType } from '@/types';
-import AddDetailIButton from './AddDetailIButton';
+import { useFormStore } from '@/store/form';
 
 export default function FormField({
   label,
@@ -12,21 +13,23 @@ export default function FormField({
   onClick,
   detailToggle,
 }: FormFieldType) {
+  const { salarySelected } = useFormStore();
+
   return (
     <div className="my-4">
       <FormLabel htmlFor="dayWorkTime">{label}</FormLabel>
-      {hasToggle && !detailToggle && (
+      {hasToggle && salarySelected !== 'day' && !detailToggle && (
         <DetailHoursToggle onClick={onClick ?? (() => {})}>
           상세하게 입력
         </DetailHoursToggle>
       )}
-      {hasToggle && detailToggle && (
+      {hasToggle && salarySelected !== 'day' && detailToggle && (
         <DetailHoursToggle onClick={onClick ?? (() => {})}>
           간단하게 입력
         </DetailHoursToggle>
       )}
       {!detailToggle && <SelectWorkHours itemType={itemType} />}
-      {detailToggle && <AddDetailIButton onClick={() => console.log('Add')} />}
+      {detailToggle && <AddDetailIButton />}
     </div>
   );
 }
