@@ -11,20 +11,28 @@ import { useEffect, useState } from 'react';
 import { SalarySelectType } from '@/types';
 import { useFormStore } from '@/store/form';
 
-export default function SalarySelectForm({ type }: SalarySelectType) {
+export default function SalarySelectForm({
+  type,
+  resetToggle,
+}: SalarySelectType) {
   const defaultValue = type === 'start' ? 'hour' : 'month';
   const { selectedSalaryOption } = useFormStore((state) => state);
+  const { resetForm } = useFormStore();
 
   const [selectedOption, setSelectedOption] = useState(defaultValue);
 
   useEffect(() => {
     selectedSalaryOption(selectedOption);
+    resetForm();
   }, [selectedOption]);
 
   return (
     <Select
       value={selectedOption}
-      onValueChange={(value) => setSelectedOption(value)}
+      onValueChange={(value) => {
+        setSelectedOption(value);
+        resetToggle && resetToggle();
+      }}
     >
       <SelectTrigger
         className={cn(
