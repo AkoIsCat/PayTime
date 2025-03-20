@@ -1,15 +1,18 @@
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { useFormStore } from '@/store/form';
 
-import { ClickType } from '@/types';
+export default function AddDetailIButton() {
+  const { addDetailForm } = useFormStore();
 
-export default function AddDetailIButton({ onClick }: ClickType) {
   return (
     <Button
       type="button"
       variant="outline"
       className={cn('w-add h-10 bg-white border-black mt-1')}
-      onClick={onClick}
+      onClick={() => {
+        addDetailForm();
+      }}
     >
       +
     </Button>
