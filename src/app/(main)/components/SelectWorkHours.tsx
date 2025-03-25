@@ -7,8 +7,22 @@ import {
   SelectContent,
 } from '@/components/ui/select';
 import { cn } from '@/lib/utils';
+import { useFormStore } from '@/store/form';
 
 export default function SelectWorkHours({ itemType, getTime }: SelectType) {
+  const { setFormData } = useFormStore();
+
+  const dataTable = {
+    time: 'dailyWorkingHours',
+    day: 'weeklyWorkDays',
+    overTime: 'overTimeWorkingHours',
+    nightShift: 'nightWorkingHours',
+    holiday: 'holidayWorkingHours',
+    tax: 'tax',
+  } as const;
+
+  const dataType = dataTable[`${itemType}`];
+
   const workHours: number[] = [];
   for (let i = 30; i <= 1440; i += 30) {
     workHours.push(i);
@@ -32,9 +46,10 @@ export default function SelectWorkHours({ itemType, getTime }: SelectType) {
 
   return (
     <Select
-      onValueChange={(value: string) =>
-        getTime ? getTime(value) : () => {}
-      }
+      onValueChange={(value: string) => {
+        getTime ? getTime(value) : () => {};
+        setFormData(dataType, +value);
+      }}
     >
       <SelectTrigger
         className={cn('bg-white border-black mt-1 hover:bg-selectBtn')}

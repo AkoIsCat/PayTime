@@ -1,7 +1,13 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useFormStore } from '@/store/form';
 
 export default function WeeklyAllowanceToggle() {
   const [selected, setSelected] = useState<'include' | 'exclude'>('include');
+  const { setFormData } = useFormStore();
+
+  useEffect(() => {
+    setFormData('weeklyAllowance', selected === 'include' ? true : false);
+  }, [selected]);
 
   return (
     <div className="flex gap-4 my-2">
