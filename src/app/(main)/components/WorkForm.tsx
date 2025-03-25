@@ -10,17 +10,20 @@ import { useState } from 'react';
 import DetailInputForm from './DetailInputForm';
 
 export default function WorkForm() {
+  console.log('🔼 상위 렌더링');
+
   const [detailToggle, setDetailToggle] = useState<boolean>(false);
 
   const salarySelected = useFormStore((state) => state.salarySelected);
-  const { detailForm, resetForm } = useFormStore();
+  const detailForm = useFormStore((state) => state.detailForm);
+  const resetForm = useFormStore((action) => action.resetForm);
+
+  const dynamicLabelValue =
+    salarySelected === 'day' ? '일' : salarySelected === 'week' ? '주' : '월';
 
   const resetToggle = () => {
     setDetailToggle(false);
   };
-
-  const dynamicLabelValue =
-    salarySelected === 'day' ? '일' : salarySelected === 'week' ? '주' : '월';
 
   return (
     <form className="w-full p-5">
