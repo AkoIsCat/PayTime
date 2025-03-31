@@ -38,7 +38,12 @@ export default function DetailInputForm({ id }: Id) {
         <DetailDaySelect getDay={dayValue} />
         <p className="mx-1 w-days">요일</p>
       </div>
-      <SelectWorkHours itemType="time" getTime={timeValue} />
+      <SelectWorkHours
+        itemType="time"
+        getTime={timeValue}
+        componentType="detail"
+        id={value.id}
+      />
       <RemoveDetailForm id={value.id} />
     </div>
   );
