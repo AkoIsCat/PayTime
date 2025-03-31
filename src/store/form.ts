@@ -5,15 +5,15 @@ type State = {
   salarySelected: string;
   detailToggle: boolean;
   detailForm: { id: string; day: string; time: string }[];
-  // formData: FormType;
   dailyWorkingHours: number | DetailWorkingTime[];
-  hourlyWage: number;
+  hourlyWage: number | string;
   weeklyAllowance: boolean;
-  weeklyWorkDays: number;
-  tax: number;
-  overTimeWorkingHours: number;
-  nightWorkingHours: number;
-  holidayWorkingHours: number;
+  weeklyWorkDays: number | string;
+  tax: number | string;
+  overTimeWorkingHours: number | string;
+  nightWorkingHours: number | string;
+  holidayWorkingHours: number | string;
+  isCalculated: boolean;
 };
 
 type Actions = {
@@ -24,31 +24,28 @@ type Actions = {
   updateForm: (id: string, day: string, time: string) => void;
   removeForm: (id: string) => void;
   resetForm: () => void;
+  changeSalaryType: () => void;
   setFormData: <T extends keyof FormType>(
     section: T,
     data: FormType[T]
   ) => void;
+  setIsCalculated: () => void;
+  clearIsCalculated: () => void;
 };
 
 export const useFormStore = create<State & Actions>((set) => ({
   salarySelected: 'month',
   detailToggle: false,
   detailForm: [],
-  // formData: {
-  //   dailyWorkingHours: 0,
-  //   hourlyWage: 0,
-  //   weeklyAllowance: false,
-  //   weeklyWorkDays: 0,
-  //   tax: 0,
-  // },
   dailyWorkingHours: 0,
-  hourlyWage: 0,
+  hourlyWage: '',
   weeklyAllowance: false,
   weeklyWorkDays: 0,
   tax: 0,
   overTimeWorkingHours: 0,
   nightWorkingHours: 0,
   holidayWorkingHours: 0,
+  isCalculated: false,
   selectedSalaryOption: (selectedSalary: string) => {
     set({ salarySelected: selectedSalary });
   },
@@ -86,17 +83,33 @@ export const useFormStore = create<State & Actions>((set) => ({
       detailForm: state.detailForm.filter((item) => item.id !== id),
     }));
   },
+  // 폼 초기화 액션
   resetForm: () => {
     set({
       detailForm: [],
       dailyWorkingHours: 0,
-      hourlyWage: 0,
+      hourlyWage: '',
+      weeklyAllowance: false,
+      weeklyWorkDays: '0',
+      tax: '0',
+      overTimeWorkingHours: '0',
+      nightWorkingHours: '0',
+      holidayWorkingHours: '0',
+      isCalculated: false,
+    });
+  },
+  // 최저시급을 제외한 모든항목 초기화 액션(급여 타입 변경 시)
+  changeSalaryType: () => {
+    set({
+      detailForm: [],
+      dailyWorkingHours: 0,
       weeklyAllowance: false,
       weeklyWorkDays: 0,
       tax: 0,
       overTimeWorkingHours: 0,
       nightWorkingHours: 0,
       holidayWorkingHours: 0,
+      isCalculated: false,
     });
   },
   setFormData: <T extends keyof FormType>(section: T, data: FormType[T]) => {
@@ -104,6 +117,12 @@ export const useFormStore = create<State & Actions>((set) => ({
       ...state,
       [`${section}`]: data,
     }));
+  },
+  setIsCalculated: () => {
+    set({ isCalculated: true });
+  },
+  clearIsCalculated: () => {
+    set({ isCalculated: false });
   },
 }));
 
