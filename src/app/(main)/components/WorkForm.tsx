@@ -6,17 +6,19 @@ import WeeklyAllowanceToggle from './WeeklyAllowanceToggle';
 import CustomButton from './Button';
 import { BsArrowRight } from 'react-icons/bs';
 import { useFormStore } from '@/store/form';
-import { useState } from 'react';
+import { FormEvent, useState } from 'react';
 import DetailInputForm from './DetailInputForm';
 
 export default function WorkForm() {
-  console.log('🔼 상위 렌더링');
+  // console.log('🔼 상위 렌더링');
 
   const [detailToggle, setDetailToggle] = useState<boolean>(false);
 
   const salarySelected = useFormStore((state) => state.salarySelected);
   const detailForm = useFormStore((state) => state.detailForm);
   const resetForm = useFormStore((action) => action.resetForm);
+  const setIsCalculated = useFormStore((action) => action.setIsCalculated);
+  const state = useFormStore();
 
   const dynamicLabelValue =
     salarySelected === 'day' ? '일' : salarySelected === 'week' ? '주' : '월';
@@ -38,10 +40,7 @@ export default function WorkForm() {
         hasToggle={true}
         itemType="time"
         detailToggle={detailToggle}
-        onClick={() => {
-          setDetailToggle(!detailToggle);
-          resetForm();
-        }}
+        onClick={() => setDetailToggle(!detailToggle)}
       />
       {salarySelected == 'day' ||
         (!detailToggle && (
@@ -76,9 +75,12 @@ export default function WorkForm() {
       <div className="flex justify-between">
         <CustomButton
           btnType="submit"
-          onClick={() => console.log('계산하기')}
+          onClick={(e: FormEvent) => {
+            e.preventDefault();
+            setIsCalculated();
+          }}
         />
-        <CustomButton btnType="reset" onClick={() => console.log('초기화')} />
+        <CustomButton btnType="reset" onClick={() => resetForm()} />
       </div>
     </form>
   );
