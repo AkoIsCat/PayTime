@@ -1,4 +1,4 @@
-import { SelectType, TaxType } from '@/types';
+import { DetailWorkingTime, SelectType, TaxType } from '@/types';
 import {
   Select,
   SelectTrigger,
@@ -8,9 +8,15 @@ import {
 } from '@/components/ui/select';
 import { cn } from '@/lib/utils';
 import { useFormStore } from '@/store/form';
+import useSelectValue from '@/app/hook/useSelectValue';
 
-export default function SelectWorkHours({ itemType, getTime }: SelectType) {
-  const { setFormData } = useFormStore();
+export default function SelectWorkHours({
+  itemType,
+  getTime,
+  componentType,
+  id,
+}: SelectType) {
+  const { setFormData, clearIsCalculated } = useFormStore();
 
   const dataTable = {
     time: 'dailyWorkingHours',
@@ -44,12 +50,33 @@ export default function SelectWorkHours({ itemType, getTime }: SelectType) {
     },
   ];
 
+  const selectValue:
+    | string
+    | DetailWorkingTime[]
+    | boolean
+    | number
+    | { id: string; day: string; time: string } = useSelectValue(
+    componentType,
+    dataType,
+    id
+  );
+
   return (
     <Select
       onValueChange={(value: string) => {
         getTime ? getTime(value) : () => {};
         setFormData(dataType, +value);
+        clearIsCalculated();
       }}
+      value={`${
+        !id
+          ? selectValue
+          : typeof selectValue === 'object' &&
+              selectValue !== null &&
+              'time' in selectValue
+            ? selectValue.time
+            : '0'
+      }`}
     >
       <SelectTrigger
         className={cn('bg-white border-black mt-1 hover:bg-selectBtn')}
