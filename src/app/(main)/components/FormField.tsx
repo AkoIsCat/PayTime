@@ -28,7 +28,9 @@ export default function FormField({
           간단하게 입력
         </DetailHoursToggle>
       )}
-      {!detailToggle && <SelectWorkHours itemType={itemType} />}
+      {!detailToggle && (
+        <SelectWorkHours componentType="simple" itemType={itemType} />
+      )}
       {detailToggle && <AddDetailIButton />}
     </div>
   );

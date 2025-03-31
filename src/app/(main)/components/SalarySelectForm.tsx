@@ -17,13 +17,14 @@ export default function SalarySelectForm({
 }: SalarySelectType) {
   const defaultValue = type === 'start' ? 'hour' : 'month';
   const { selectedSalaryOption } = useFormStore((state) => state);
-  const { resetForm } = useFormStore();
+  const { changeSalaryType, clearIsCalculated } = useFormStore();
 
   const [selectedOption, setSelectedOption] = useState(defaultValue);
 
   useEffect(() => {
     selectedSalaryOption(selectedOption);
-    resetForm();
+    changeSalaryType();
+    clearIsCalculated();
   }, [selectedOption]);
 
   return (

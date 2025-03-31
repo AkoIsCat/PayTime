@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 import { useFormStore } from '@/store/form';
 
 export default function HourlyWageForm() {
-  const { setFormData } = useFormStore();
+  const { setFormData, hourlyWage, clearIsCalculated } = useFormStore();
 
   return (
     <div className="my-4">
@@ -18,7 +18,11 @@ export default function HourlyWageForm() {
           className={cn(
             'w-wage h-input outline-none my-1 pl-2 text-base border rounded-lg bg-white border-black text-right pr-7'
           )}
-          onChange={(e) => setFormData('hourlyWage', +e.target.value)}
+          onChange={(e) => {
+            setFormData('hourlyWage', +e.target.value);
+            clearIsCalculated();
+          }}
+          value={hourlyWage}
         />
         <span className="absolute right-2 top-50% -translate-y-50% pr-2">
           원

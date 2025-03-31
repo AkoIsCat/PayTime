@@ -3,7 +3,7 @@ import { useFormStore } from '@/store/form';
 
 export default function WeeklyAllowanceToggle() {
   const [selected, setSelected] = useState<'include' | 'exclude'>('include');
-  const { setFormData } = useFormStore();
+  const { setFormData, clearIsCalculated } = useFormStore();
 
   useEffect(() => {
     setFormData('weeklyAllowance', selected === 'include' ? true : false);
@@ -22,7 +22,10 @@ export default function WeeklyAllowanceToggle() {
           value="include"
           className="hidden"
           checked={selected === 'include'}
-          onChange={() => setSelected('include')}
+          onChange={() => {
+            setSelected('include');
+            clearIsCalculated();
+          }}
         />
         포함
       </label>
