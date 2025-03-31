@@ -8,6 +8,10 @@ export interface ClickType {
   onClick: () => void;
 }
 
+export interface FormClickType {
+  onClick: (e: FormEvent) => void;
+}
+
 export interface Id {
   id: string;
 }
@@ -39,6 +43,8 @@ type SelectItem =
 export type SelectType = {
   itemType: SelectItem;
   getTime?: (time: string) => void;
+  componentType: 'detail' | 'simple';
+  id?: string;
 };
 
 // 계산 결과 type
@@ -120,6 +126,6 @@ export type FormType = {
 
 export type MergeChildrenFor = Children & LabelForType;
 
-export type MergeBtnClick = ButtonType & ClickType;
+export type MergeBtnClick = ButtonType & FormClickType;
 
 export type MergeChildrenDetailBtn = Children & DetailToggleType;
