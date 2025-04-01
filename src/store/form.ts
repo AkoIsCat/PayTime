@@ -31,6 +31,7 @@ type Actions = {
   ) => void;
   setIsCalculated: () => void;
   clearIsCalculated: () => void;
+  clearDailyWorkingHours: () => void;
 };
 
 export const useFormStore = create<State & Actions>((set) => ({
@@ -104,11 +105,11 @@ export const useFormStore = create<State & Actions>((set) => ({
       detailForm: [],
       dailyWorkingHours: 0,
       weeklyAllowance: false,
-      weeklyWorkDays: 0,
-      tax: 0,
-      overTimeWorkingHours: 0,
-      nightWorkingHours: 0,
-      holidayWorkingHours: 0,
+      weeklyWorkDays: '0',
+      tax: '0',
+      overTimeWorkingHours: '0',
+      nightWorkingHours: '0',
+      holidayWorkingHours: '0',
       isCalculated: false,
     });
   },
@@ -124,6 +125,9 @@ export const useFormStore = create<State & Actions>((set) => ({
   clearIsCalculated: () => {
     set({ isCalculated: false });
   },
+  clearDailyWorkingHours: () => {
+    set({dailyWorkingHours: 0});
+  }
 }));
 
 // state[`${section}`]:
