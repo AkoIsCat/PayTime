@@ -1,12 +1,16 @@
 import SelectWorkHours from './SelectWorkHours';
 import DetailDaySelect from './DetailDaySelect';
 
-import { Id } from '@/types';
+import { MergeDetailId } from '@/types';
 import { useEffect, useState } from 'react';
 import { useFormStore } from '@/store/form';
 import RemoveDetailForm from './RemoveDetailForm';
 
-export default function DetailInputForm({ id }: Id) {
+export default function DetailInputForm({
+  id,
+  selectDays,
+  setSelectedDays,
+}: MergeDetailId) {
   const { updateForm } = useFormStore();
   const [value, setValue] = useState<{
     id: string;
@@ -35,7 +39,12 @@ export default function DetailInputForm({ id }: Id) {
   return (
     <div className="flex" id={id}>
       <div className="flex text-sm mx-2 text-center items-center">
-        <DetailDaySelect getDay={dayValue} />
+        <DetailDaySelect
+          id={id}
+          getDay={dayValue}
+          selectDays={selectDays}
+          setSelectedDays={setSelectedDays}
+        />
         <p className="mx-1 w-days">요일</p>
       </div>
       <SelectWorkHours
@@ -44,7 +53,11 @@ export default function DetailInputForm({ id }: Id) {
         componentType="detail"
         id={value.id}
       />
-      <RemoveDetailForm id={value.id} />
+      <RemoveDetailForm
+        id={value.id}
+        selectDays={selectDays}
+        setSelectedDays={setSelectedDays}
+      />
     </div>
   );
 }
