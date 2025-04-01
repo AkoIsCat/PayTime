@@ -91,7 +91,12 @@ export interface DetailToggleType {
 }
 
 export interface DetailDayType {
+  id: string;
   getDay: (day: string) => void;
+  setSelectedDays: React.Dispatch<
+    React.SetStateAction<{ [id: string]: string }>
+  >;
+  selectDays: { [id: string]: string };
 }
 
 // 일일 근무시간 자세한 입력
@@ -101,17 +106,12 @@ export interface DetailWorkingTime {
   time: string;
 }
 
-// // form 타입
-// export interface FormDataType {
-//   dailyWorkingHours?: number | DetailWorkingTime[];
-//   HourlyWage?: number;
-//   weeklyWorkDays?: number;
-//   weeklyAllowance?: boolean;
-//   overTimeWork?: number;
-//   nightShiftWork?: number;
-//   holidayWork?: number;
-//   tax?: number;
-// }
+export interface DetailType {
+  selectDays: { [id: string]: string };
+  setSelectedDays: React.Dispatch<
+    React.SetStateAction<{ [id: string]: string }>
+  >;
+}
 
 export type FormType = {
   dailyWorkingHours: number | DetailWorkingTime[];
@@ -129,3 +129,5 @@ export type MergeChildrenFor = Children & LabelForType;
 export type MergeBtnClick = ButtonType & FormClickType;
 
 export type MergeChildrenDetailBtn = Children & DetailToggleType;
+
+export type MergeDetailId = Id & DetailType;
