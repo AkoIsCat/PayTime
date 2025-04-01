@@ -3,7 +3,7 @@ import { cn } from '@/lib/utils';
 import { useFormStore } from '@/store/form';
 
 export default function AddDetailIButton() {
-  const { addDetailForm } = useFormStore();
+  const { addDetailForm, clearDailyWorkingHours } = useFormStore();
 
   return (
     <Button
@@ -12,6 +12,7 @@ export default function AddDetailIButton() {
       className={cn('w-add h-10 bg-white border-black mt-1')}
       onClick={() => {
         addDetailForm();
+        clearDailyWorkingHours();
       }}
     >
       +
