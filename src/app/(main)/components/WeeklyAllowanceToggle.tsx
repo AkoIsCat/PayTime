@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import { useFormStore } from '@/store/form';
 
 export default function WeeklyAllowanceToggle() {
-  const [selected, setSelected] = useState<'include' | 'exclude'>('include');
-  const { setFormData, clearIsCalculated } = useFormStore();
+  const [selected, setSelected] = useState<'include' | 'exclude'>('exclude');
+  const { setFormData } = useFormStore();
 
   useEffect(() => {
     setFormData('weeklyAllowance', selected === 'include' ? true : false);
@@ -24,7 +24,6 @@ export default function WeeklyAllowanceToggle() {
           checked={selected === 'include'}
           onChange={() => {
             setSelected('include');
-            clearIsCalculated();
           }}
         />
         포함
