@@ -21,6 +21,10 @@ export default function WorkForm() {
   const dailyWorkingHours = useFormStore((state) => state.dailyWorkingHours);
   const weeklyWorkDays = useFormStore((state) => state.weeklyWorkDays);
   const hourlyWage = useFormStore((state) => state.hourlyWage);
+  const nightWorkingHours = useFormStore((state) => state.nightWorkingHours);
+  const holidayWorkingHours = useFormStore(
+    (state) => state.holidayWorkingHours
+  );
 
   const dynamicLabelValue =
     salarySelected === 'day' ? '일' : salarySelected === 'week' ? '주' : '월';
@@ -36,7 +40,12 @@ export default function WorkForm() {
       alert('시급을 입력해주세요.');
       return;
     }
-    if (dailyWorkingHours === 0 && detailForm.length === 0) {
+    if (
+      dailyWorkingHours == 0 &&
+      detailForm.length === 0 &&
+      nightWorkingHours == 0 &&
+      holidayWorkingHours == 0
+    ) {
       alert('일일 근무시간을 입력해주세요.');
       return;
     }
