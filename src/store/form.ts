@@ -32,6 +32,7 @@ type Actions = {
   setIsCalculated: () => void;
   clearIsCalculated: () => void;
   clearDailyWorkingHours: () => void;
+  clearDetailForm: () => void;
 };
 
 export const useFormStore = create<State & Actions>((set) => ({
@@ -127,6 +128,9 @@ export const useFormStore = create<State & Actions>((set) => ({
   },
   clearDailyWorkingHours: () => {
     set({dailyWorkingHours: 0});
+  },
+  clearDetailForm: () => {
+    set({detailForm: []});
   }
 }));
 
