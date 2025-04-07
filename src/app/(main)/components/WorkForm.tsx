@@ -18,6 +18,7 @@ export default function WorkForm() {
   const resetForm = useFormStore((action) => action.resetForm);
   const setIsCalculated = useFormStore((action) => action.setIsCalculated);
   const changeSalaryType = useFormStore((action) => action.changeSalaryType);
+  const clearDetailForm = useFormStore((action) => action.clearDetailForm);
   const dailyWorkingHours = useFormStore((state) => state.dailyWorkingHours);
   const weeklyWorkDays = useFormStore((state) => state.weeklyWorkDays);
   const hourlyWage = useFormStore((state) => state.hourlyWage);
@@ -99,6 +100,8 @@ export default function WorkForm() {
         onClick={() => {
           setDetailToggle(!detailToggle);
           changeSalaryType();
+          clearDetailForm();
+          setSelectedDays({});
         }}
       />
       {salarySelected == 'day' ||
