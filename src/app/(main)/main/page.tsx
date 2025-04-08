@@ -33,23 +33,40 @@ export default function Main() {
 
   const isCalculated = useFormStore((action) => action.isCalculated);
 
-  console.log(detailForm, dailyWorkingHours);
-
   useEffect(() => {
     onClickCalculate();
   }, [isCalculated]);
 
+  console.log(detailForm);
+
   const onClickCalculate = () => {
+    const detailWorkingHours = detailForm.reduce(
+      (sum, current) => (sum += +current.time),
+      0
+    );
+    // console.log(detailWorkingHours);
+
     const overTimeSalary = (overTimeWokringHours / 60) * (hourlyWage * 1.5);
     const nightTimeSalary = (nightWorkingHours / 60) * (hourlyWage * 1.5);
     const holiydaySalary = (holidayWorkingHours / 60) * (hourlyWage * 1.5);
-    const weekSalary = hourlyWage * (dailyWorkingHours / 60) * weeklyWorkDays; // 주급
-    const weekWorkingHours = (dailyWorkingHours * weeklyWorkDays) / 60;
+    const weekSalary = // 주급
+      detailForm.length > 0
+        ? hourlyWage * (detailWorkingHours / 60) // 상세 입력시 계산식
+        : hourlyWage * (dailyWorkingHours / 60) * weeklyWorkDays; // 단순 입력시 계산식
+    const weekWorkingHours =
+      detailForm.length > 0 // detailForm에 배열이 존재할 시
+        ? detailWorkingHours / 60
+        : (dailyWorkingHours * weeklyWorkDays) / 60;
     const WHA = // 주휴수당
       weekWorkingHours > 40
-        ? (dailyWorkingHours / 60) * hourlyWage
-        : ((weekWorkingHours * 8) / 40) * hourlyWage;
+        ? detailForm.length > 0
+          ? (detailWorkingHours / 60 / detailForm.length) * hourlyWage
+          : (dailyWorkingHours / 60) * hourlyWage
+        : detailForm.length < 0
+          ? ((detailWorkingHours * 8) / 40) * hourlyWage
+          : ((weekWorkingHours * 8) / 40) * hourlyWage;
 
+    // 일급
     if (salarySelected) {
       const salary = hourlyWage * (dailyWorkingHours / 60);
       setDaySalary(
@@ -58,6 +75,7 @@ export default function Main() {
           : salary
       );
     }
+    // 주휴 & 주급
     if (salarySelected === 'week' || salarySelected === 'month') {
       setWeekSalary(
         salarySelected === 'week'
@@ -66,6 +84,7 @@ export default function Main() {
       );
       setWHsalary(WHA);
     }
+    // 월급
     if (salarySelected === 'month') {
       const monthSalary =
         weekSalary * 4 + overTimeSalary + nightTimeSalary + holiydaySalary;
@@ -77,12 +96,17 @@ export default function Main() {
   // 야간, 휴일 근무시간 입력 시 일일 근무시간에서 해당되는 시간은 제외 후 입력해야함 o
   // 전부 야간(휴일) 근무 시 일일 근무시간 0으로 입력. o
   // 일일 근무시간이 0일 경우 야간(휴일) 근무시간이 입력되어 있지 않으면 경고창 띄우기 o
-  // 상세 입력 폼에서도 마찬가지. 해당 근무 요일의 시간을 조정해야함.
-  // 상세 입력 시 주휴수당은 모든 요일의 시간을 더한 후 근무 일수를 나누고 시급을 곱함
   // 세금도 급여에서 계산하기 o
-  // 근무시간 입력 폼에서 ! 아이콘으로 야간/휴일 근무시간은 해당 일일 근무시간에서 시간을 제외하도록 유도
-  // 월급 계산 시 주휴수당을 포함하지 않은 금액이라고 안내
-  // 세금 툴팁으로 어떤 종류가 있는지 표시하기(알바천국, 알바몬 참고)
+  // 4/8 새벽 ===> 주휴수당 계산 이상함(40시간 미만) o
+  // 상세 입력 시 주휴수당은 모든 요일의 시간을 더한 후 근무 일수를 나누고 시급을 곱함 o
+  // 상세 입력 폼에서도 마찬가지. 해당 근무 요일의 시간을 조정해야함. o
+  // 근무시간 입력 폼에서 ! 아이콘으로 야간/휴일 근무시간은 해당 일일 근무시간에서 시간을 제외하도록 표기(물론 상세폼도 표기) o
+  // 월급 계산 시 주휴수당을 포함하지 않은 금액이라고 안내 ! o
+
+  // 주 근무 15시간 이상시에만 주휴수당 포함버튼 활성화 되도록 수정
+  // 폼 데이터 변경시 주휴수당 여부가 true일 시 false로 초기화해주는 액션함수 필요할듯 => 이미 false면 아무런 반응이 없도록 구현.
+  // 세금 툴팁으로 어떤 종류가 있는지 표시하기(알바천국, 알바몬 참고) !
+  // 툴팁 렌더링 시 월급과 폼 부분에서 위치 조정이 필요함
 
   return (
     <Background>
