@@ -29,6 +29,7 @@ export interface ContentsType {
 // form 항목들 label의 필요 type
 export interface LabelForType {
   htmlFor: string;
+  itemType: SelectItem;
 }
 
 type SelectItem =
@@ -122,6 +123,10 @@ export type FormType = {
   overTimeWorkingHours: number;
   nightWorkingHours: number;
   holidayWorkingHours: number;
+};
+
+export type TooltipType = {
+  text: string;
 };
 
 export type MergeChildrenFor = Children & LabelForType;
