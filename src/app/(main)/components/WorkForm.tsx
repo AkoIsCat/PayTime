@@ -119,7 +119,9 @@ export default function WorkForm() {
         ))}
       {salarySelected !== 'day' && (
         <div className="my-4">
-          <FormLabel htmlFor="WH">주휴수당</FormLabel>
+          <FormLabel htmlFor="WH" itemType="day">
+            주휴수당
+          </FormLabel>
           <WeeklyAllowanceToggle />
         </div>
       )}
