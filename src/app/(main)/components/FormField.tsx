@@ -17,7 +17,7 @@ export default function FormField({
 
   return (
     <div className="my-4">
-      <FormLabel htmlFor="dayWorkTime">{label}</FormLabel>
+      <FormLabel htmlFor="dayWorkTime" itemType={itemType}>{label}</FormLabel>
       {hasToggle && salarySelected !== 'day' && !detailToggle && (
         <DetailHoursToggle onClick={onClick ?? (() => {})}>
           상세하게 입력
