@@ -7,7 +7,7 @@ export default function WeeklyAllowanceToggle() {
   const detailForm = useFormStore((state) => state.detailForm);
 
   const [selected, setSelected] = useState<'include' | 'exclude'>('exclude');
-  const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(false);
+  const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(true);
   const { setFormData } = useFormStore();
 
   useEffect(() => {
@@ -20,10 +20,10 @@ export default function WeeklyAllowanceToggle() {
       ? (dailyWorkingHours / 60) * weeklyWorkDays >= 15
       : detailForm.reduce((sum, current) => (sum += +current.time), 0) / 60 >=
         15;
-
     if (isEligibleForWHA) {
       setIsButtonDisabled(false);
     } else {
+      setSelected('exclude');
       setIsButtonDisabled(true);
     }
   }, [dailyWorkingHours, weeklyWorkDays, detailForm]);
@@ -32,7 +32,13 @@ export default function WeeklyAllowanceToggle() {
     <div className="flex gap-4 my-2">
       <label
         className={`w-weekly border h-input border-black rounded-md text-sm flex items-center justify-center cursor-pointer ${
-          selected === 'include' ? 'bg-selectBtn' : 'bg-white'
+          selected === 'include'
+            ? 'bg-selectBtn'
+            : isButtonDisabled
+              ? 'bg-disabledBtn text-disabled opacity-50'
+              : selected === 'exclude'
+                ? 'bg-white'
+                : ''
         }`}
       >
         <input

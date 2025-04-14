@@ -18,6 +18,7 @@ const config: Config = {
         resetBtn: '#ffffff',
         selectBtn: '#dedede',
         logoText: '#2e2e2e',
+        disabled: '#a0a0a0',
       },
       width: {
         contentsWidth: '595px',
@@ -35,6 +36,7 @@ const config: Config = {
       backgroundColor: {
         background: '#F5F5F5',
         mainBgColor: '#F6F6F6',
+        disabledBtn: '#e0e0e0',
       },
       height: {
         header: '90px',
