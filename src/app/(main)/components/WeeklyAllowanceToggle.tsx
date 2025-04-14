@@ -2,12 +2,31 @@ import { useEffect, useState } from 'react';
 import { useFormStore } from '@/store/form';
 
 export default function WeeklyAllowanceToggle() {
+  const dailyWorkingHours = useFormStore((state) => +state.dailyWorkingHours);
+  const weeklyWorkDays = useFormStore((state) => +state.weeklyWorkDays);
+  const detailForm = useFormStore((state) => state.detailForm);
+
   const [selected, setSelected] = useState<'include' | 'exclude'>('exclude');
+  const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(false);
   const { setFormData } = useFormStore();
 
   useEffect(() => {
     setFormData('weeklyAllowance', selected === 'include' ? true : false);
   }, [selected]);
+
+  useEffect(() => {
+    const hasDetailForm = detailForm.length > 0;
+    const isEligibleForWHA = !hasDetailForm
+      ? (dailyWorkingHours / 60) * weeklyWorkDays >= 15
+      : detailForm.reduce((sum, current) => (sum += +current.time), 0) / 60 >=
+        15;
+
+    if (isEligibleForWHA) {
+      setIsButtonDisabled(false);
+    } else {
+      setIsButtonDisabled(true);
+    }
+  }, [dailyWorkingHours, weeklyWorkDays, detailForm]);
 
   return (
     <div className="flex gap-4 my-2">
@@ -21,6 +40,7 @@ export default function WeeklyAllowanceToggle() {
           name="option"
           value="include"
           className="hidden"
+          disabled={isButtonDisabled}
           checked={selected === 'include'}
           onChange={() => {
             setSelected('include');
