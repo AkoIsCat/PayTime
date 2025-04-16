@@ -35,7 +35,9 @@ export default function SalaryResultsBox({ resultsType, salary }: ResultsType) {
           />
         )}
         {showTooltip && (
-          <InfoTooltip text="주휴수당을 포함하지 않은 금액입니다." />
+          <InfoTooltip>
+            <div>주휴수당을 포함하지 않은 금액입니다.</div>
+          </InfoTooltip>
         )}
       </div>
       <div>
