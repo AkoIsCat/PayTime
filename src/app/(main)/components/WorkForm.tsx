@@ -67,7 +67,7 @@ export default function WorkForm() {
       );
 
       if (isInvalidDetail) {
-        alert('상세 근무시간에 요일 또는 시간을 모두 입력해주세요.');
+        alert('상세 입력 시 요일 및 시간을 모두 입력해주세요.');
         return;
       }
     }
