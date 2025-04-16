@@ -1,19 +1,7 @@
-import { RiErrorWarningLine } from 'react-icons/ri';
 import { ResultsType } from '@/types';
-import { useState } from 'react';
-import InfoTooltip from './InfoTooltip';
+import TooltipInfo from './TootipInfo';
 
 export default function SalaryResultsBox({ resultsType, salary }: ResultsType) {
-  const [showTooltip, setShowTooltip] = useState<boolean>(false);
-
-  const hoverIcon = () => {
-    setShowTooltip(true);
-  };
-
-  const leaveIcon = () => {
-    setShowTooltip(false);
-  };
-
   return (
     <div className="flex justify-between w-input p-2 text-xl">
       <div className="flex items-center relative">
@@ -28,16 +16,9 @@ export default function SalaryResultsBox({ resultsType, salary }: ResultsType) {
                 : '월급'}
         </span>
         {resultsType === 'month' && (
-          <RiErrorWarningLine
-            className="ml-1"
-            onMouseEnter={hoverIcon}
-            onMouseLeave={leaveIcon}
-          />
-        )}
-        {showTooltip && (
-          <InfoTooltip>
+          <TooltipInfo>
             <div>주휴수당을 포함하지 않은 금액입니다.</div>
-          </InfoTooltip>
+          </TooltipInfo>
         )}
       </div>
       <div>
