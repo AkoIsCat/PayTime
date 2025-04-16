@@ -15,6 +15,11 @@ export default function SalaryResultsBox({ resultsType, salary }: ResultsType) {
                 ? '주급'
                 : '월급'}
         </span>
+        {resultsType === 'WH' && (
+          <TooltipInfo>
+            <div>주마다 나오는 주휴수당 금액 입니다.</div>
+          </TooltipInfo>
+        )}
         {resultsType === 'month' && (
           <TooltipInfo>
             <div>주휴수당을 포함하지 않은 금액입니다.</div>
