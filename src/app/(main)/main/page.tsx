@@ -37,14 +37,11 @@ export default function Main() {
     onClickCalculate();
   }, [isCalculated]);
 
-  console.log(detailForm);
-
   const onClickCalculate = () => {
     const detailWorkingHours = detailForm.reduce(
       (sum, current) => (sum += +current.time),
       0
     );
-    // console.log(detailWorkingHours);
 
     const overTimeSalary = (overTimeWokringHours / 60) * (hourlyWage * 1.5);
     const nightTimeSalary = (nightWorkingHours / 60) * (hourlyWage * 1.5);
@@ -71,24 +68,28 @@ export default function Main() {
       const salary = hourlyWage * (dailyWorkingHours / 60);
       setDaySalary(
         salarySelected === 'day'
-          ? salary + overTimeSalary + nightTimeSalary + holiydaySalary
-          : salary
+          ? Math.floor(
+              salary + overTimeSalary + nightTimeSalary + holiydaySalary
+            )
+          : Math.floor(salary)
       );
     }
     // 주휴 & 주급
     if (salarySelected === 'week' || salarySelected === 'month') {
       setWeekSalary(
         salarySelected === 'week'
-          ? weekSalary + overTimeSalary + nightTimeSalary + holiydaySalary
-          : weekSalary
+          ? Math.floor(
+              weekSalary + overTimeSalary + nightTimeSalary + holiydaySalary
+            )
+          : Math.floor(weekSalary)
       );
-      setWHsalary(WHA);
+      setWHsalary(Math.floor(WHA));
     }
     // 월급
     if (salarySelected === 'month') {
       const monthSalary =
-        weekSalary * 4 + overTimeSalary + nightTimeSalary + holiydaySalary;
-      setMonthSalary(monthSalary - monthSalary * (tax / 100));
+        weekSalary * 4.345 + overTimeSalary + nightTimeSalary + holiydaySalary;
+      setMonthSalary(Math.floor(monthSalary - monthSalary * (tax / 100)));
     }
   };
 
