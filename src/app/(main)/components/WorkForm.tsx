@@ -86,7 +86,7 @@ export default function WorkForm() {
 
   return (
     <form className="w-full p-5">
-      <div className="flex justify-around">
+      <div className="flex justify-around items-center">
         <SalarySelectForm type="start" />
         <BsArrowRight size={26} />
         <SalarySelectForm type="end" resetToggle={resetToggle} />
