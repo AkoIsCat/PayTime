@@ -1,13 +1,13 @@
 import SalarySelectForm from './SalarySelectForm';
 import HourlyWageForm from './HourlyWageForm';
 import FormField from './FormField';
-import FormLabel from './FormLabel';
+import FormLabel from '../UI/FormLabel';
 import WeeklyAllowanceToggle from './WeeklyAllowanceToggle';
-import CustomButton from './Button';
+import CustomButton from '../UI/Button';
 import { BsArrowRight } from 'react-icons/bs';
 import { useFormStore } from '@/store/form';
 import { FormEvent, useState } from 'react';
-import DetailInputForm from './DetailInputForm';
+import DetailInputForm from '../form-detail/DetailInputForm';
 
 export default function WorkForm() {
   const [detailToggle, setDetailToggle] = useState<boolean>(false);

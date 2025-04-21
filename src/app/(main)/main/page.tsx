@@ -1,11 +1,11 @@
 'use client';
 import Background from '@/app/components/Background';
 import Contents from '@/app/components/Contents';
-import SalaryResultsBox from '../components/SalaryResultsBox';
-import Footer from '../components/Footer';
-import Header from '../components/Header';
-import HourlyWageInfo from '../components/HourlyWageInfo';
-import WorkForm from '../components/WorkForm';
+import SalaryResultsBox from '../components/UI/SalaryResultsBox';
+import Footer from '../components/layout/Footer';
+import Header from '../components/layout/Header';
+import HourlyWageInfo from '../components/UI/HourlyWageInfo';
+import WorkForm from '../components/form/WorkForm';
 
 import { useFormStore } from '@/store/form';
 import { useEffect, useState } from 'react';

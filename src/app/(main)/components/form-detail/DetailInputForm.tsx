@@ -1,4 +1,4 @@
-import SelectWorkHours from './SelectWorkHours';
+import SelectWorkHours from '../form/SelectWorkHours';
 import DetailDaySelect from './DetailDaySelect';
 
 import { MergeDetailId } from '@/types';

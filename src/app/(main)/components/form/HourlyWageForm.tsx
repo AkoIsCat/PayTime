@@ -1,4 +1,4 @@
-import FormLabel from './FormLabel';
+import FormLabel from '../UI/FormLabel';
 import { Input } from '@/components/ui/input';
 import { cn } from '@/lib/utils';
 import { useFormStore } from '@/store/form';
@@ -8,7 +8,9 @@ export default function HourlyWageForm() {
 
   return (
     <div className="my-4">
-      <FormLabel htmlFor="work_hours">시급</FormLabel>
+      <FormLabel itemType="day" htmlFor="work_hours">
+        시급
+      </FormLabel>
       <label className="flex relative flex-col">
         <Input
           type="number"
