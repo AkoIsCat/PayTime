@@ -9,7 +9,7 @@ export default function Contents({ children, splash }: MergeChildrenSplash) {
 
   return (
     <div
-      className={`${backgroundGradient[splash]} w-contentsWidth min-h-screen flex items-center justify-center flex-col`}
+      className={`${backgroundGradient[splash]} w-full sm:w-[595px] max-w-contentsWidth min-h-screen flex items-center justify-center flex-col mx-auto`}
     >
       {children}
     </div>

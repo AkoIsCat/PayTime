@@ -4,7 +4,7 @@ import Logo from '@/asset/PayTimeLogo_RemoveBg.png';
 
 export default function Header() {
   return (
-    <header className="w-contentsWidth h-header bg-white flex justify-center items-center">
+    <header className="w-full max-w-contentsWidth mx-auto h-header bg-white flex justify-center items-center">
       <div>
         <Image
           src={Logo}

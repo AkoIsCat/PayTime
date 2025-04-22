@@ -18,7 +18,7 @@ export default function HourlyWageForm() {
           name="work_hours"
           placeholder="10030"
           className={cn(
-            'w-wage h-input outline-none my-1 pl-2 text-base border rounded-lg bg-white border-black text-right pr-7'
+            'w-full max-w-wage h-input outline-none my-1 pl-1 text-base border rounded-lg bg-white border-black text-right pr-8'
           )}
           onChange={(e) => {
             setFormData('hourlyWage', +e.target.value);

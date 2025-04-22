@@ -88,7 +88,7 @@ export default function WorkForm() {
     <form className="w-full p-5">
       <div className="flex justify-around items-center">
         <SalarySelectForm type="start" />
-        <BsArrowRight size={26} />
+        <BsArrowRight size={26} className="mx-4" />
         <SalarySelectForm type="end" resetToggle={resetToggle} />
       </div>
       <HourlyWageForm />
@@ -141,7 +141,7 @@ export default function WorkForm() {
         itemType="holiday"
       />
       <FormField label="세금" hasToggle={false} itemType="tax" />
-      <div className="flex justify-between">
+      <div className="flex justify-between gap-4">
         <CustomButton
           btnType="submit"
           onClick={(e: FormEvent) => onClickCalculate(e)}

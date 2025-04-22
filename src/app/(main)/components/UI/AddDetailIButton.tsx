@@ -9,7 +9,7 @@ export default function AddDetailIButton() {
     <Button
       type="button"
       variant="outline"
-      className={cn('w-add h-10 bg-white border-black mt-1')}
+      className={cn('w-full max-w-add h-10 bg-white border-black mt-1')}
       onClick={() => {
         addDetailForm();
         clearDailyWorkingHours();
