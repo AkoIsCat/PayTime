@@ -34,6 +34,7 @@ export default function Splash() {
         initial={{ opacity: 1 }}
         animate={{ opacity: 0 }}
         transition={transitionEffect}
+        className="w-full max-w-contentsWidth "
       >
         <Contents splash={1}>
           <Image src={Logo} width={250} height={250} alt="페이타임 로고" />
