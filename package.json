@@ -31,22 +31,12 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-<<<<<<< HEAD
-    "autoprefixer": "^10.4.20",
-    "css-loader": "^7.1.2",
-=======
     "autoprefixer": "^10.4.21",
->>>>>>> cef4360 (Merge: Aborting complete)
     "eslint": "^8",
     "eslint-config-next": "14.2.23",
     "husky": "^9.1.7",
     "lint-staged": "^15.4.3",
-<<<<<<< HEAD
-    "postcss": "^8.5.1",
-    "postcss-loader": "^8.1.1",
-=======
     "postcss": "^8.5.3",
->>>>>>> cef4360 (Merge: Aborting complete)
     "prettier": "3.4.2",
     "tailwindcss": "^3.4.17",
     "ts-node": "^10.9.2",
