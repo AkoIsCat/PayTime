@@ -31,7 +31,7 @@ export default function Splash() {
   return (
     <Background>
       <div>test</div>
-      {/* <motion.div
+      <motion.div
         initial={{ opacity: 1 }}
         animate={{ opacity: 0 }}
         transition={transitionEffect}
@@ -45,7 +45,7 @@ export default function Splash() {
             PayTime
           </div>
         </Contents>
-      </motion.div> */}
+      </motion.div>
     </Background>
   );
 }
