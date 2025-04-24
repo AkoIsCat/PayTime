@@ -30,7 +30,6 @@ export default function Splash() {
 
   return (
     <Background>
-      <div>test</div>
       <motion.div
         initial={{ opacity: 1 }}
         animate={{ opacity: 0 }}
