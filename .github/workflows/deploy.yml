@@ -13,6 +13,8 @@ jobs:
       # 1️⃣ 레포지토리 체크아웃
       - name: Checkout Repository
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       # 2️⃣ 의존성 설치 및 빌드
       - name: Install dependencies and build
