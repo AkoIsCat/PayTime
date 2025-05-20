@@ -15,7 +15,7 @@
 
 ## PayTime 서비스 소개
 
-Link : [https://paytimecalc.duckdns.org/](https://paytimecalc.duckdns.org/)
+> ✅ 배포 URL: [https://paytimecalc.duckdns.org/](https://paytimecalc.duckdns.org/)
 
 당신의 **유동적인 알바 시간표**,  
 기존 플랫폼으로는 정확하게 계산하기 어렵지 않으셨나요?
@@ -49,21 +49,21 @@ PayTime은 시급 기반의 급여를 보다 **정확하고 유연하게 계산*
 > - 페이타임은 **근무 시간이 유동적인 사용자**도 쉽게 사용할 수 있도록 설계되었습니다.
 
 
-## 📌 [기술 및 고민 정리 - WIKI]()
+## 📌 [기술 및 고민 정리 - WIKI](https://github.com/AkoIsCat/PayTime/wiki)
 
 ## 📌 주요 기능
 
 
 ## 🗂 더 알아보고 싶으시다면?
 
-해당 프로젝트는 [🧮 PayTime 바로가기](https://paytimecalc.duckdns.org/))에서 사용해 보실 수 있어요.
+해당 프로젝트는 [💸 PayTime 바로가기](https://paytimecalc.duckdns.org/)에서 사용해 보실 수 있어요.
 
 더 궁금하시다면 아래를 참고해주세요.
 
 - 프로젝트를 기획하게 된 계기가 궁금해요. [👉 프로젝트 소개 바로가기]()
 - 주요 기능이 궁금해요. [👉 PayTime 사용 설명서 바로가기]()
-- 프로젝트를 직접 설치하고 싶어요. [👉 설치 가이드 바로가기]()
-- 사용한 기술이 궁금해요. [👉 기술 스택 바로가기]()
-- 커밋 규칙을 알아보고 싶어요. [👉 커밋 가이드 바로가기]()
+- 프로젝트를 직접 설치하고 싶어요. [👉 설치 가이드 바로가기](https://github.com/AkoIsCat/PayTime/wiki/%E2%9A%99%EF%B8%8F-%EC%84%A4%EC%B9%98-%EA%B0%80%EC%9D%B4%EB%93%9C/_edit)
+- 사용한 기술이 궁금해요. [👉 기술 스택 바로가기](https://github.com/AkoIsCat/PayTime/wiki/%F0%9F%97%82-%EA%B8%B0%EC%88%A0-%EC%8A%A4%ED%83%9D)
+- 커밋 규칙을 알아보고 싶어요. [👉 커밋 가이드 바로가기](https://github.com/AkoIsCat/PayTime/wiki/%F0%9F%93%9C-%EC%BB%A4%EB%B0%8B-%EA%B0%80%EC%9D%B4%EB%93%9C)
 - 프로젝트를 하면서 겪은 고민들이 궁금해요. [👉 고민 모음집 바로가기]()
 - 프로젝트를 하면서 겪었던 문제들이 궁금해요. [👉 Trouble Shooting 내역 바로가기]()
