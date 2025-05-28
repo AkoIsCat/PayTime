@@ -1,16 +1,16 @@
-import { Tooltip as ReactTooltip } from 'react-tooltip';
+import { Tooltip } from 'react-tooltip';
 import { RiErrorWarningLine } from 'react-icons/ri';
 import { Children } from '@/types';
 
 export default function TooltipInfo({ children }: Children) {
   return (
     <div>
-      <a data-tooltip-id="my-tooltip">
+      <a data-tooltip-id="taxTooltip">
         <RiErrorWarningLine />
       </a>
-      <ReactTooltip id="my-tooltip" style={{ maxWidth: '350px' }}>
+      <Tooltip id="taxTooltip" style={{ maxWidth: '350px' }}>
         {children}
-      </ReactTooltip>
+      </Tooltip>
     </div>
   );
 }

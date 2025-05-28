@@ -18,14 +18,12 @@ export default function FormLabel({
         {itemType === 'time' && (
           <div>
             <a
-              data-tooltip-id="formTooltip"
-              data-tooltip-html="<div>
-              야간/휴일 근무시간은 해당 일일 근무시간에서 시간을 제외해주세요.
-            </div>"
+              data-tooltip-id="Tooltip"
+              data-tooltip-content="야간/휴일 근무시간은 해당 일일 근무시간에서 시간을 제외해주세요."
             >
               <RiErrorWarningLine className="ml-1" />
             </a>
-            <Tooltip id="formTooltip"></Tooltip>
+            <Tooltip id="Tooltip" place="top" offset={10}></Tooltip>
           </div>
         )}
         {itemType === 'tax' && (

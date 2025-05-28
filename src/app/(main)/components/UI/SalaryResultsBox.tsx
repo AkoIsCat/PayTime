@@ -1,5 +1,6 @@
 import { ResultsType } from '@/types';
-import TooltipInfo from './TootipInfo';
+import { RiErrorWarningLine } from 'react-icons/ri';
+import { Tooltip } from 'react-tooltip';
 
 export default function SalaryResultsBox({ resultsType, salary }: ResultsType) {
   return (
@@ -16,14 +17,26 @@ export default function SalaryResultsBox({ resultsType, salary }: ResultsType) {
                 : '월급'}
         </span>
         {resultsType === 'WH' && (
-          <TooltipInfo>
-            <div>주마다 나오는 주휴수당 금액 입니다.</div>
-          </TooltipInfo>
+          <div>
+            <a
+              data-tooltip-id="WHTooltip"
+              data-tooltip-html="<div>주마다 나오는 주휴수당 금액 입니다.</div>"
+            >
+              <RiErrorWarningLine className="ml-1" />
+            </a>
+            <Tooltip id="WHTooltip"></Tooltip>
+          </div>
         )}
         {resultsType === 'month' && (
-          <TooltipInfo>
-            <div>주휴수당을 포함하지 않은 금액입니다.</div>
-          </TooltipInfo>
+          <div>
+            <a
+              data-tooltip-id="monthTooltip"
+              data-tooltip-html="<div>주휴수당을 포함하지 않은 금액입니다.</div>"
+            >
+              <RiErrorWarningLine className="ml-1" />
+            </a>
+            <Tooltip id="monthTooltip" place="top"></Tooltip>
+          </div>
         )}
       </div>
       <div className="mx-3">
