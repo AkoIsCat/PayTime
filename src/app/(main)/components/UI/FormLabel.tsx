@@ -1,6 +1,8 @@
 import { MergeChildrenFor } from '@/types';
 import TaxTooltip from './TaxTooltip';
 import TooltipInfo from './TootipInfo';
+import { Tooltip } from 'react-tooltip';
+import { RiErrorWarningLine } from 'react-icons/ri';
 
 export default function FormLabel({
   children,
@@ -14,11 +16,17 @@ export default function FormLabel({
           <div className="mr-1">{children}</div>
         </div>
         {itemType === 'time' && (
-          <TooltipInfo>
-            <div>
+          <div>
+            <a
+              data-tooltip-id="formTooltip"
+              data-tooltip-html="<div>
               야간/휴일 근무시간은 해당 일일 근무시간에서 시간을 제외해주세요.
-            </div>
-          </TooltipInfo>
+            </div>"
+            >
+              <RiErrorWarningLine className="ml-1" />
+            </a>
+            <Tooltip id="formTooltip"></Tooltip>
+          </div>
         )}
         {itemType === 'tax' && (
           <TooltipInfo>
