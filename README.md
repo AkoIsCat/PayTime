@@ -1,38 +1,68 @@
-# PayTime
-페이타임 웹 어플리케이션입니다.
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PayTime - 시급 계산기
 
-## Getting Started
+<div align='center'>
 
-First, run the development server:
+<img src='https://github.com/user-attachments/assets/e771d4d5-644c-4399-bfdb-5eafd1875069' width='400' />
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+</div>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ 프로젝트 한눈에 보기
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- 프로젝트명: PayTime
+- 개발기간: 2025.02 - 2023.04 (총 9주)
+- 주요기능: 시급에 따른 일급, 주급, 월급 계산
+- 핵심 기술: NextJs, Tailwind, Zustand, Docker, PWA
+- 100% 개인 개발
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## PayTime 서비스 소개
 
-## Learn More
+> ✅ 배포 URL: [https://paytimecalc.duckdns.org/](https://paytimecalc.duckdns.org/)
 
-To learn more about Next.js, take a look at the following resources:
+당신의 **유동적인 알바 시간표**,  
+기존 플랫폼으로는 정확하게 계산하기 어렵지 않으셨나요?
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+PayTime은 시급 기반의 급여를 보다 **정확하고 유연하게 계산**할 수 있도록 도와주는 서비스입니다.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### ⏱ 시급만 입력하면 자동으로 급여 계산!
 
-## Deploy on Vercel
+> - 일급, 주급, 월급, **주휴수당까지 한 번에** 확인할 수 있어요.
+> - 복잡한 계산 없이, 필요한 정보만 입력하면 자동으로 결과를 알려드립니다.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 🌙 연장, 야간, 휴일 수당도 정확하게!
+
+> - 주어진 시간 안에 연장/야간/휴일 근무가 있다면?
+> - **근로기준법 기준에 맞춰 수당까지 정확하게 계산**해드려요.
+
+---
+
+### 📅 요일마다 다른 근무시간도 문제없어요!
+
+> - 요일별로 **근무 시간이 다른 경우에도 자유롭게 입력 가능**합니다.
+> - 반복되는 근무시간 외에도, **요일별 상세 입력 기능**으로 더 유연하게 활용하세요.
+
+---
+
+### 🚫 기존 플랫폼과의 차별점
+
+> - 알바몬, 알바천국 등 유명한 플랫폼들의 계산기는 **요일별 근무시간 입력이 불가능**합니다.
+> - 페이타임은 **근무 시간이 유동적인 사용자**도 쉽게 사용할 수 있도록 설계되었습니다.
+
+## 📌 [기술 및 고민 정리 - WIKI](https://github.com/AkoIsCat/PayTime/wiki)
+
+## 📌 주요 기능
+
+## 🗂 더 알아보고 싶으시다면?
+
+해당 프로젝트는 [💸 PayTime 바로가기](https://paytimecalc.duckdns.org/)에서 사용해 보실 수 있어요.
+
+더 궁금하시다면 아래를 참고해주세요.
+
+- 프로젝트를 기획하게 된 계기가 궁금해요. [👉 프로젝트 소개 바로가기]()
+- 주요 기능이 궁금해요. [👉 PayTime 사용 설명서 바로가기]()
+- 프로젝트를 직접 설치하고 싶어요. [👉 설치 가이드 바로가기](https://github.com/AkoIsCat/PayTime/wiki/%E2%9A%99%EF%B8%8F-%EC%84%A4%EC%B9%98-%EA%B0%80%EC%9D%B4%EB%93%9C)
+- 사용한 기술이 궁금해요. [👉 기술 스택 바로가기](https://github.com/AkoIsCat/PayTime/wiki/%F0%9F%97%82-%EA%B8%B0%EC%88%A0-%EC%8A%A4%ED%83%9D)
+- 커밋 규칙을 알아보고 싶어요. [👉 커밋 가이드 바로가기](https://github.com/AkoIsCat/PayTime/wiki/%F0%9F%93%9C-%EC%BB%A4%EB%B0%8B-%EA%B0%80%EC%9D%B4%EB%93%9C)
+- 프로젝트를 하면서 겪은 고민들이 궁금해요. [👉 고민 모음집 바로가기]()
+- 프로젝트를 하면서 겪었던 문제들이 궁금해요. [👉 Trouble Shooting 내역 바로가기]()
