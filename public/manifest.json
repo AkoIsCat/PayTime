@@ -1,5 +1,5 @@
 {
-  "background_color": "#a8e8ff",
+  "background_color": "#feebf9",
   "icons": [
     {
       "purpose": "maskable",
@@ -16,7 +16,7 @@
   ],
   "screenshots": [
     {
-      "src": "/screenshots/mobile.png",
+      "src": "/screenshots/desktop.png",
       "sizes": "1080x1920",
       "type": "image/png",
       "form_factor": "narrow"
