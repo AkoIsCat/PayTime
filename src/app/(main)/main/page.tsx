@@ -97,7 +97,7 @@ export default function Main() {
     <Background>
       <Contents splash={0}>
         <Header />
-        <HourlyWageInfo year={2025} hourlyWage={10030} />
+        <HourlyWageInfo year={2026} hourlyWage={10320} />
         <WorkForm />
         {salarySelected && isCalculated && (
           <SalaryResultsBox resultsType="day" salary={daySalary} />

@@ -16,7 +16,7 @@ export default function HourlyWageForm() {
           type="number"
           id="work_hours"
           name="work_hours"
-          placeholder="10030"
+          placeholder="10320"
           className={cn(
             'w-full max-w-wage h-input outline-none my-1 pl-1 text-base border rounded-lg bg-white border-black text-right pr-8'
           )}
